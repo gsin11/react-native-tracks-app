@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-tracks-app",
-    "slug": "react-tracks-app",
+    "name": "react-native-tracks-app",
+    "slug": "react-native-tracks-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
