@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useContext, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
 import { Context as AuthContext } from "../context/AuthContext";
 
 export default function SignUpScreen({ navigation }) {
-  const { state, signUp } = useContext(AuthContext);
+  const { state, signUp, clearErrorMessage } = useContext(AuthContext);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      clearErrorMessage();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -28,8 +36,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     marginBottom: 200,
-  },
-  link: {
-    color: "blue",
   },
 });
